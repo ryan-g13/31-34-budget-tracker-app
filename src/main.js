@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './component/app/app';
-import categoriesReducer from './reducer/category';
+import combineReducers from './reducer/main';
+// import categoriesReducer from './reducer/category';
 import './styles/main.scss';
 
 
@@ -13,7 +14,8 @@ import './styles/main.scss';
 // Setting up the Store
 //------------------------------------------------------------
 const middleware = {};
-const store = createStore(categoriesReducer, composeWithDevTools(applyMiddleware(...middleware)));
+// combined reducer to replace just cats one. TODO:
+const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(...middleware)));
 //------------------------------------------------------------
 // Redering
 //------------------------------------------------------------
