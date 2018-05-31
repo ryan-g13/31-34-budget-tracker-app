@@ -4,6 +4,7 @@ import autoBind from '../../utils';
 
 const defaultState = {
   name: '',
+  budget: 0, 
 };
 
 class CategoryForm extends React.Component {
@@ -21,7 +22,15 @@ class CategoryForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onComplete(this.state);
+    this.setState(defaultState); // clears form after submission
   }
+
+  // static getDerivedStateFromProps(nextProps) listener for state change {
+  // if (nextProps.category) {
+  // return nextProps.category;
+  // }
+  // return default state;
+  // }
 
   render() {
     const buttonText = this.props.category ? 'Update' : 'Create';
